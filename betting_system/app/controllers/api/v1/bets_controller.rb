@@ -2,7 +2,7 @@ module Api
   module V1
     class BetsController < ApplicationController
       before_action :authenticate_user
-      before_action :set_user
+      before_action :set_user, only: [:index]
 
       def index
         @bets = current_user.bets
