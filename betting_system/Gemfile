@@ -47,3 +47,9 @@ group :development do
 end
 
 gem 'bcrypt', '~> 3.1'
+
+gem 'faker', '~> 3.5'
+
+gem 'sidekiq'
+
+gem 'faye-websocket'
