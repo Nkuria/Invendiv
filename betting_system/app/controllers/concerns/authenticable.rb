@@ -5,7 +5,7 @@ module Authenticable
     header = request.headers['Authorization']
     return nil if header.nil?
 
-    decoded = JsonWebToken.decode(header.split(" ").last)
+    decoded = JsonWebToken.decode(header.split(' ').last)
     @current_user = begin
                       User.find(decoded[:user_id])
     rescue StandardError

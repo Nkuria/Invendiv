@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
       namespace :v1 do
-        resources :users, only: %i[create show]
+        resources :users, only: %i[create show] do
+          resources :bets, only: [:index]
+        end
         resources :bets, only: %i[create show]
         resources :tokens, only: [:create]
       end
