@@ -4,8 +4,38 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+arsenal:
+  name: "Arsenal"
+
+chelsea:
+  name: "Chelsea"
+
+manchester_city:
+  name: "Manchester City"
+
+manchester_united:
+  name: "Manchester United"
+
+liverpool:
+  name: "Liverpool"
+
+wolves:
+  name: "Wolves"
+
+brentford:
+  name: "Brentford"
+
+ipswich:
+  name: "Ipswich"
+
+nottingham:
+  name: "Nottingham Forest"
+
+tottenham:
+  name: "Tottenham Hotspur"
+
+brighton:
+  name: "Brighton"
+
+southampton:
+  name: "Southampton"

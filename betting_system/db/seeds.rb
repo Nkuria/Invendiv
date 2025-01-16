@@ -8,8 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-User.create(first_name: 'user1', surname: 'user1 surname', email: 'user1mail@mail.com', password: '123456',
-            verified: true)
 
 teams = [
   'Arsenal', 'West Ham', 'Chelsea', 'Manchester City', 'Manchester United',

@@ -4,8 +4,23 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  user: one 
+  game: one  
+  odd: one 
+  stake: 100
+  outcome: 0
+
+two:
+  user: two 
+  game: two  
+  odd: two  
+  stake: 50
+  outcome: 1
+
+three:
+  user: one 
+  game: three 
+  odd: three
+  stake: 200
+  outcome: 1

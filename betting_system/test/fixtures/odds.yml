@@ -4,8 +4,17 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  team: arsenal
+  outcome: 1
+  game: one  
+
+two:
+  team: manchester_city
+  outcome: 0
+  game: two  
+
+three:
+  team: liverpool
+  outcome: 1
+  game: three 
