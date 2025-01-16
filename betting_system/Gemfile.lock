@@ -109,6 +109,8 @@ GEM
     irb (1.14.3)
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
+    jwt (2.10.1)
+      base64
     logger (1.6.5)
     loofah (2.24.0)
       crass (~> 1.0.2)
@@ -239,6 +241,7 @@ DEPENDENCIES
   debug
   faker (~> 3.5)
   faye-websocket
+  jwt (~> 2.10)
   minitest
   mocha
   pg (~> 1.1)

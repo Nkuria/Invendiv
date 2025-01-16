@@ -2,8 +2,7 @@ require 'test_helper'
 
 class LeaderboardServiceTest < ActiveSupport::TestCase
   def setup
-    # Create mock users and bets for the test
-    @user1 = users(:one) # Assuming a fixture with a user
+    @user1 = users(:one)
     @user2 = users(:two)
     @user3 = users(:three)
 
@@ -30,10 +29,8 @@ class LeaderboardServiceTest < ActiveSupport::TestCase
   # end
 
   def test_leaderboard_data
-    # Call the service method to get the leaderboard
     leaderboard_data = LeaderboardService.update_leaderboard
 
-    # Fetch the expected leaderboard sorted by wins
     leaderboard = User.joins(:bets)
                        .where(bets: { outcome: 'settled' })
                        .group('users.id')
@@ -49,7 +46,6 @@ class LeaderboardServiceTest < ActiveSupport::TestCase
       }
     end
 
-    # Assert that the leaderboard data matches the expected output
     assert_equal leaderboard_data, leaderboard_data
   end
 end

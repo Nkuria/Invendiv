@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       namespace :v1 do
         resources :users, only: %i[create show]
         resources :bets, only: %i[create show]
+        resources :tokens, only: [:create]
       end
   end
 end

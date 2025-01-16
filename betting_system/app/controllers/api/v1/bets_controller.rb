@@ -5,6 +5,7 @@ class Api::V1::BetsController < ApplicationController
 
   def create
     @bet = Bet.new(bet_params)
+    @bet.user = current_user
 
     if @bet.save
       render json: @bet, status: :created
@@ -16,6 +17,6 @@ class Api::V1::BetsController < ApplicationController
   private
 
   def bet_params
-    params.require(:bet).permit(:user_id, :game_id, :odd_id, :stake)
+    params.require(:bet).permit(:game_id, :odd_id, :stake)
   end
 end
