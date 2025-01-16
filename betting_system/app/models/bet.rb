@@ -3,6 +3,8 @@ class Bet < ApplicationRecord
   belongs_to :game
   belongs_to :odd
 
+  after_update :calculate_leaderboard
+
   validates :stake, presence: true
 
   enum outcome: %i[lost settled]
@@ -13,5 +15,9 @@ class Bet < ApplicationRecord
 
   def team
     odd.team
+  end
+
+  def calculate_leaderboard
+    LeaderboardService.update_leaderboard
   end
 end

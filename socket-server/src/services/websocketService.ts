@@ -18,11 +18,11 @@ wss.on('connection', (ws: WebSocket) => {
     switch (data.event) {
       case 'requestLeaderboard':
         // Broadcast the leaderboard to the client
-        LeaderboardConsumer.broadcastLeaderboard();
+        LeaderboardConsumer.broadcastLeaderboard(data);
         break;
       case 'requestOdds':
         // Broadcast the odds to the client
-        OddsConsumer.broadcastOdds();
+        OddsConsumer.broadcastOdds(data);
         break;
       default:
         console.log('Unknown event received:', data.event);
