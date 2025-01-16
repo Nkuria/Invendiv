@@ -14,9 +14,9 @@ class WebSocketPublisher
       ws.on :open do |_event|
         puts 'Connected to WebSocket server'
 
-        # Send the data after the connection is open
         ws.send(data.to_json)
         puts "Sent data: #{data.to_json}"
+        ws.close
       end
 
       ws.on :message do |event|

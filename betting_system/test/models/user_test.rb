@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   test 'should be valid with valid attributes' do
-    user = User.new(first_name: 'John', surname: 'Doe', email: Faker::Internet.email, password: 'password123',
+    user = User.new(first_name: 'John', surname: 'Doe', email: Faker::Internet.unique.email, password: 'password123',
                     verified: true)
     assert user.valid?
   end

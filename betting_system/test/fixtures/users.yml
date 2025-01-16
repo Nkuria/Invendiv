@@ -8,13 +8,20 @@
 one:
   first_name: "John"
   surname: "Doe"
-  email: "john.doe@example.com"
+  email: <%=  Faker::Internet.email %>
   password_digest: <%= BCrypt::Password.create('password123') %>
   verified: true
 
 two:
   first_name: "Jane"
   surname: "Smith"
-  email: "jane.smith@example.com"
+  email: <%= Faker::Internet.email %>
+  password_digest: <%= BCrypt::Password.create('password456') %>
+  verified: true
+
+three:
+  first_name: "Jane"
+  surname: "Smith"
+  email: <%= Faker::Internet.email %>
   password_digest: <%= BCrypt::Password.create('password456') %>
   verified: true
