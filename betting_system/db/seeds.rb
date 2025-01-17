@@ -8,7 +8,6 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
 teams = [
   'Arsenal', 'West Ham', 'Chelsea', 'Manchester City', 'Manchester United',
   'Liverpool', 'Wolves', 'Brentford', 'Ipswich', 'Nottingham', 'Tottenham',

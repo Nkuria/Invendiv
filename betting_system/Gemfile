@@ -56,4 +56,4 @@ gem 'sidekiq'
 
 gem 'faye-websocket'
 
-gem "jwt", "~> 2.10"
+gem 'jwt', '~> 2.10'

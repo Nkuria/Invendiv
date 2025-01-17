@@ -16,6 +16,7 @@ module Api
       def create
         @bet = Bet.new(bet_params)
         @bet.user = current_user
+        @bet.outcome = 2
 
         if @bet.save
           render json: @bet, status: :created
