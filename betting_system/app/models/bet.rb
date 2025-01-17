@@ -17,7 +17,16 @@ class Bet < ApplicationRecord
     odd.team
   end
 
+  def settle_bet
+    ActiveRecord::Base.transaction do
+      update(outcome: 1)
+      user.update(balance: potential_payout + user.balance)
+    end
+  end
+
   def calculate_leaderboard
+    return unless saved_change_to_outcome?
+
     invalidate_leaderboard_cache
     LeaderboardService.update_leaderboard
   end
