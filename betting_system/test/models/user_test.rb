@@ -15,7 +15,7 @@ class UserTest < ActiveSupport::TestCase
 
   # Test associations
   test 'should have many bets' do
-    user = users(:one) # Assuming you have a fixture for users
+    user = users(:one)
     assert_respond_to user, :bets
   end
 end

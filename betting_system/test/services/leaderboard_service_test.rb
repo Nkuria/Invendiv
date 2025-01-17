@@ -13,21 +13,6 @@ class LeaderboardServiceTest < ActiveSupport::TestCase
     @bet4 = @user3.bets.create(outcome: 1, stake: 50)
   end
 
-  # def test_update_leaderboard
-  #   # Mock the WebSocketPublisher to prevent actual WebSocket communication
-  #   mock_publisher = Minitest::Mock.new
-  #   WebSocketPublisher.stub :new, mock_publisher do
-  #     # Expect the WebSocketPublisher to send the leaderboard data
-  #     mock_publisher.expect(:send_message, nil, [{ event: 'requestLeaderboard', data: Array }])
-
-  #     # Call the method to update the leaderboard
-  #     LeaderboardService.update_leaderboard
-
-  #     # Check that the send_message method was called once with the expected data
-  #     mock_publisher.verify
-  #   end
-  # end
-
   def test_leaderboard_data
     leaderboard_data = LeaderboardService.update_leaderboard
 
