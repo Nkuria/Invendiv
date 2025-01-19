@@ -47,10 +47,6 @@ class BetsControllerTest < ActionDispatch::IntegrationTest
     end
 
     assert_response :unprocessable_entity
-    # response_data = JSON.parse(response.body)
-    # assert_includes response_data['game'], "can't be blank"
-    # assert_includes response_data['odd'], "can't be blank"
-    # assert_includes response_data['stake'], "can't be blank"
   end
 
   test 'should not allow unauthorized access' do
