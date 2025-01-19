@@ -24,3 +24,17 @@ three:
   odd: three
   stake: 200
   outcome: 1
+
+winning_bet:
+  user: one
+  game: one
+  outcome: 1
+  stake: 200
+  odd: winning_odd
+
+losing_bet:
+  user: two
+  game: one
+  outcome: 0
+  stake: 1
+  odd: losing_odd

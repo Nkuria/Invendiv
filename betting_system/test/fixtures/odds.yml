@@ -7,14 +7,29 @@
 one:
   team: arsenal
   outcome: 1
-  game: one  
+  game: one 
+  value: 1.2
 
 two:
   team: manchester_city
   outcome: 0
-  game: two  
+  game: two
+  value: 1.2
 
 three:
   team: liverpool
   outcome: 1
-  game: three 
+  game: three
+  value: 1.2
+
+winning_odd:
+  game: one
+  team: arsenal
+  outcome: 1
+  value: 1.2
+
+losing_odd:
+  game: one
+  team: chelsea
+  outcome: 2
+  value: 1.2

@@ -23,4 +23,21 @@ class Game < ApplicationRecord
 
       PublishOddUpdates.perform_async(id)
     end
+
+    def end_game(winner, draw: false)
+      winning_odds = nil
+      if draw
+        odds.update_all(outcome: 3)
+      elsif winner == 'away'
+        winning_odds = away_odds
+        away_odds.update(outcome: 1)
+        home_odds.update(outcome: 2)
+      elsif winner == 'home'
+        winning_odds = home_odds
+        away_odds.update(outcome: 2)
+        home_odds.update(outcome: 1)
+      end
+      BetSettlementService.new(self, winning_odds).call
+      update(status: 2)
+    end
 end

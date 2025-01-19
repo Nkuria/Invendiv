@@ -5,6 +5,8 @@ class Bet < ApplicationRecord
 
   after_update :calculate_leaderboard, if: :settled_outcome?
 
+  scope :for_game, ->(game_id) { joins(:odd).where(odds: { game_id: }) }
+
   validates :stake, presence: true
 
   enum outcome: %i[lost settled pending_outcome]
@@ -28,7 +30,7 @@ class Bet < ApplicationRecord
     return unless saved_change_to_outcome?
 
     invalidate_leaderboard_cache
-    LeaderboardService.update_leaderboard
+    UpdateLeaderboardJob.perform_async(page: 1, per_page: 10)
   end
 
   def settled_outcome?

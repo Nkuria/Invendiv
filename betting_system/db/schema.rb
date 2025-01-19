@@ -24,6 +24,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_17_061322) do
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_bets_on_game_id"
     t.index ["odd_id"], name: "index_bets_on_odd_id"
+    t.index ["stake"], name: "index_bets_on_stake"
     t.index ["user_id"], name: "index_bets_on_user_id"
   end
 
@@ -35,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_17_061322) do
     t.datetime "updated_at", null: false
     t.index ["away_team_id"], name: "index_games_on_away_team_id"
     t.index ["home_team_id"], name: "index_games_on_home_team_id"
+    t.index ["status"], name: "index_games_on_status"
   end
 
   create_table "odds", force: :cascade do |t|
@@ -45,13 +47,16 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_17_061322) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["game_id"], name: "index_odds_on_game_id"
+    t.index ["outcome"], name: "index_odds_on_outcome"
     t.index ["team_id"], name: "index_odds_on_team_id"
+    t.index ["value"], name: "index_odds_on_value"
   end
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_teams_on_name"
   end
 
   create_table "users", force: :cascade do |t|
@@ -62,7 +67,11 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_17_061322) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "balance"
+    t.decimal "balance", default: "0.0"
+    t.index ["balance"], name: "index_users_on_balance"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name", "surname"], name: "index_users_on_first_name_and_surname"
+    t.index ["verified"], name: "index_users_on_verified"
   end
 
   add_foreign_key "bets", "games"
