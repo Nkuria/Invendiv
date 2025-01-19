@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::API
-  include ErrorHandling
   include Authenticable
+  include ErrorHandling
 
   def authenticate_user
     return unless current_user.nil?
 
-    raise UnauthorizedError, 'You must be logged in'
+      render json: { error: 'Unauthorized' }, status: :unauthorized
   end
 end
