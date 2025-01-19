@@ -3,8 +3,8 @@ class CreateOdds < ActiveRecord::Migration[7.1]
     create_table :odds do |t|
       t.references :game, foreign_key: true, index: true
       t.references :team, foreign_key: true, index: true
-      t.decimal :value, precision: 5, scale: 2
-      t.integer :outcome
+      t.decimal :value, precision: 5, scale: 2, index: true
+      t.integer :outcome, index: true
 
       t.timestamps
     end
