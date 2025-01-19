@@ -36,6 +36,12 @@ wss.on('connection', (ws: WebSocket, req: any) => {
 
     const data = JSON.parse(message);
     switch (data.event) {
+      case 'ping':
+        // Respond with pong to keep the connection alive
+        ws.send('pong');
+        console.log('Sent pong message');
+        break;
+        
       case 'requestLeaderboard':
         // Broadcast the leaderboard to the client
         LeaderboardConsumer.broadcastLeaderboard(data);
