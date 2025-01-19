@@ -14,7 +14,7 @@ class BetSettlementService
 
   def update_bets
     if @draw
-      Bet.for_game(game.id).update_all(outcome: 0)
+      Bet.for_game(@game.id).update_all(outcome: 0)
       return
     end
     @winner.bets.update_all(outcome: 1)
