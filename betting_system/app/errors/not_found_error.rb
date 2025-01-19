@@ -1,0 +1,1 @@
+class NotFoundError < ApplicationError; end
